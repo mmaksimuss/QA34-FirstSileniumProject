@@ -35,6 +35,45 @@ public class FindElementsTests {
         System.out.println(elements.size());
 
     }
+
+    @Test
+    public void findElementByLocators(){
+        // id
+        driver.findElement(By.id("city"));
+        // class name
+        driver.findElement(By.className("input-container"));
+        // name
+        //driver.findElement(By.name("name"));
+        // link text
+        driver.findElement(By.linkText("Let the car work"));
+        //partial link text
+        driver.findElement(By.partialLinkText("work"));
+
+    }
+    //css selector
+    @Test
+    public void findElementByCssSelector(){
+        // tag Name=tag Name
+        // id->#
+        // findElement (By.id(#city))
+        driver.findElement(By.cssSelector("#city"));
+        // class name -> .className
+       // driver.findElement(By.className(".input-container"));
+        driver.findElement(By.cssSelector(".input-container"));
+        //[name='user']
+        driver.findElement(By.cssSelector("[for='city']"));
+        driver.findElement(By.cssSelector("[href='/search']"));
+        // contains -> *
+        driver.findElement(By.cssSelector("[href*='car']"));
+        // start -> ^
+        driver.findElement(By.cssSelector("[href^='/let']"));
+        // end on ->$
+        driver.findElement(By.cssSelector("[href$='work']"));
+
+    }
+    // xPath
+
+
     @AfterMethod   //postcondition
     public void tearDown(){
         driver.quit();

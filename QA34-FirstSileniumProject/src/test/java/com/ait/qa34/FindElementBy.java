@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class FindElementByTegName {
+public class FindElementBy {
     WebDriver driver;
 
     @BeforeMethod
@@ -29,6 +29,21 @@ public class FindElementByTegName {
         System.out.println(element1);
         WebElement element2 = driver.findElement(By.tagName("a"));
         System.out.println(element2);
+    }
+    @Test
+    public void findElementByCssSelector(){
+
+        driver.findElement(By.cssSelector("#bar-notification"));
+        driver.findElement(By.cssSelector("#mob-menu-button "));
+        driver.findElement(By.cssSelector(".close"));
+        driver.findElement(By.cssSelector(".master-wrapper-page .header"));
+        driver.findElement(By.cssSelector("[type='text/javascript']"));
+        driver.findElement(By.cssSelector("[href='/electronics']"));
+        driver.findElement(By.cssSelector("[style*=none]"));
+        driver.findElement(By.cssSelector("[src^=https]"));
+        driver.findElement(By.cssSelector("[src$=jpeg]"));
+        driver.findElement(By.cssSelector("[src*=own]"));
+
     }
 
     @AfterMethod
