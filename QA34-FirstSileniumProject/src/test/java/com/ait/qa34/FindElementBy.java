@@ -30,8 +30,9 @@ public class FindElementBy {
         WebElement element2 = driver.findElement(By.tagName("a"));
         System.out.println(element2);
     }
+
     @Test
-    public void findElementByCssSelector(){
+    public void findElementByCssSelector() {
 
         driver.findElement(By.cssSelector("#bar-notification"));
         driver.findElement(By.cssSelector("#mob-menu-button "));
@@ -43,6 +44,21 @@ public class FindElementBy {
         driver.findElement(By.cssSelector("[src^=https]"));
         driver.findElement(By.cssSelector("[src$=jpeg]"));
         driver.findElement(By.cssSelector("[src*=own]"));
+
+    }
+
+    @Test
+    public void findElementByXPath() {
+        driver.findElement(By.xpath("//*[@id='bar-notification']"));
+        driver.findElement(By.xpath("//*[@id='mob-menu-button']"));
+        driver.findElement(By.xpath("//*[@class='close']"));
+        driver.findElement(By.xpath("//*[contains(@class, 'master-wrapper-page')]//*[contains(@class, 'header')]"));
+        driver.findElement(By.xpath("//*[@type='text/javascript']"));
+        driver.findElement(By.xpath("//*[contains(@href,'/electronics')]"));
+        driver.findElement(By.xpath("//*[contains(@style,'none')]"));
+        driver.findElement(By.xpath("//img[starts-with(@src, 'https')]"));
+        driver.findElement(By.xpath("//img[contains(@src, '.jpeg')]"));
+        driver.findElement(By.xpath("//img[contains(@src, 'own')]"));
 
     }
 

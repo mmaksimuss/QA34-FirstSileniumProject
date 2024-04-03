@@ -25,8 +25,8 @@ public class FindElementsTests {
 
     @Test
     public void findElementByTegName() {
-     //find element by Tag name
-       WebElement element=driver.findElement(By.tagName("h1"));
+        //find element by Tag name
+        WebElement element = driver.findElement(By.tagName("h1"));
         System.out.println(element.getText());
 
         WebElement element1 = driver.findElement(By.tagName("a"));
@@ -37,7 +37,7 @@ public class FindElementsTests {
     }
 
     @Test
-    public void findElementByLocators(){
+    public void findElementByLocators() {
         // id
         driver.findElement(By.id("city"));
         // class name
@@ -50,15 +50,16 @@ public class FindElementsTests {
         driver.findElement(By.partialLinkText("work"));
 
     }
+
     //css selector
     @Test
-    public void findElementByCssSelector(){
+    public void findElementByCssSelector() {
         // tag Name=tag Name
         // id->#
         // findElement (By.id(#city))
         driver.findElement(By.cssSelector("#city"));
         // class name -> .className
-       // driver.findElement(By.className(".input-container"));
+        // driver.findElement(By.className(".input-container"));
         driver.findElement(By.cssSelector(".input-container"));
         //[name='user']
         driver.findElement(By.cssSelector("[for='city']"));
@@ -71,11 +72,42 @@ public class FindElementsTests {
         driver.findElement(By.cssSelector("[href$='work']"));
 
     }
-    // xPath
 
+    // xPath   // tag[@atrib="value"]
+    @Test
+    public void findElementByXpath() {
+        // tag name = //tag
+        // driver.findElement(By.tagName("h1"));
+        driver.findElement(By.xpath("//h1"));
+        // id -> //tag[@id='idName']
+        // driver.findElement(By.id("city"));
+        driver.findElement(By.xpath("//*[@id='city']"));
+        //class name -> //tag[@class='className']
+        // driver.findElement(By.className("input-container"));
+        driver.findElement(By.xpath("//*[@class='input-container']"));
+        //contains -> //*[contains(@attr,'...')]
+        // driver.findElement(By.cssSelector("[href*='car']"));
+        driver.findElement(By.xpath("//*[contains(@href,'car')]"));
+        // start -> //*
+        //driver.findElement(By.cssSelector("[href^='/let']"));
+        driver.findElement(By.xpath("//*[starts-with(@href,'/let')]"));
+
+        // text
+        driver.findElement(By.xpath("//span[text()=' Never mistaken for anything else ']"));
+        driver.findElement(By.xpath("//span[.=' Never mistaken for anything else ']"));
+        driver.findElement(By.xpath("//span[contains(.,'mistake')]"));
+        driver.findElement(By.xpath("//span[contains(text(),'mistake')]"));
+
+       // search of parent element - //input[@id='username']/..
+       // //div/a - child - css = div>a
+       // //div//a - any level child - css = div a
+
+
+
+    }
 
     @AfterMethod   //postcondition
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
     }
 }
